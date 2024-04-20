@@ -26,11 +26,24 @@ chunk_size = 3
 result = Chunker.chunk(my_list, chunk_size)
 print(result) # Output: [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]
 
+
 list1 = [1, 2, 3, 4, 5]
 list2 = [6, 7, 8]
 list3 = [9, 10, 11, 12]
 result = Chunker.multi_chunk(list1, list2, list3, chunk_size=3, default_value=0)
 print(result) # Output: [[1, 6, 9], [2, 7, 10], [3, 8, 11], [4, 0, 12], [5, 0, 0]]
+
+
+# Specify the number of sublists to split into
+split_into = 4
+# Split the list using the split function
+result = Chunker.split(my_list, split_into)
+
+# Display the result
+print("Original List:", my_list)
+print("Split into", split_into, "sublists:")
+for i, sublist in enumerate(result):
+    print(f"Sublist {i+1}: {sublist}")
 ```
 
 ```py

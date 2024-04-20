@@ -40,4 +40,20 @@ class Chunker:
             chunks.append(chunk)
 
         return chunks
+    
 
+    def split(input_list, split_into: int):
+        """
+        Split a list into smaller sublists as evenly as possible.
+
+        :param input_list: The list to be split.
+        :param split_into: The number of sublists to split the list into.
+        :return: A list of sublists.
+        """
+        if split_into <= 0:
+            raise ValueError("Split into value must be a positive integer.")
+
+        num_items = len(input_list)
+        quotient, remainder = divmod(num_items, split_into)
+        result = [input_list[i * quotient + min(i, remainder):(i + 1) * quotient + min(i + 1, remainder)] for i in range(min(split_into, num_items))]
+        return result
